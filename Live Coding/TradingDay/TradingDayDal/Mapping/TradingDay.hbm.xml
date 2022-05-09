@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="TradingDayDal" namespace="TradingDayDal">
+	<class name="TradingDay" lazy="true">
+		<id name="Id">
+			<generator class="native" />
+		</id>
+		<property name="Date"  />
+		<set name="ExchangeRates" table="ExchangeRates" inverse="true" cascade="all">
+			<key column="TradingDayId"/>
+			<one-to-many class="ExchangeRate"/>
+		</set>
+	</class>
+</hibernate-mapping>
