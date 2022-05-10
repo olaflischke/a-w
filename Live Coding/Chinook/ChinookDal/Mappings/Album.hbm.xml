@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="ChinookDal" namespace="ChinookDal.Models">
+	<class name="Album">
+		<id name="Id" column="AlbumId" generator="identity" />
+
+		<property name="Title"/>
+
+		<many-to-one name="Artist" class="Artist" column="ArtistId"/>
+
+		<bag name="Tracks" table="Track">
+			<key column="AlbumId" />
+			<one-to-many class="Track"/>
+		</bag>
+	</class>
+</hibernate-mapping>
