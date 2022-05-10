@@ -16,5 +16,6 @@ namespace ChinookDal.Models
         public virtual int Milliseconds { get; set; }
         public virtual int Bytes { get; set; }
         public virtual double UnitPrice { get; set; }
+        public virtual Int64 Timestamp { get; set; }
     }
 }

@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="ChinookDal" namespace="ChinookDal.Models">
-	<class name="Track">
+	<class name="Track" optimistic-lock="dirty" dynamic-update="true" dynamic-insert="false">
 		<id name="Id" column="TrackId">
 			<generator class="identity" />
 		</id>
+		<version name="Timestamp" column="TimeStamp" type="System.Int64"/>
 
 		<property name="Name" />
 		<property name="Composer" />
@@ -11,8 +12,9 @@
 		<property name="Bytes" />
 		<property name="UnitPrice" />
 
-		<many-to-one class="Album" name="Album" column="AlbumId"  />
-		<many-to-one class="Genre" name="Genre" column="GenreId" not-null="true"/> <!-- Mögliche Exception? -->
+		<many-to-one class="Album" name="Album" column="AlbumId" />
+		<many-to-one class="Genre" name="Genre" column="GenreId" not-null="true"/>
+		<!-- Mögliche Exception? -->
 
 	</class>
 </hibernate-mapping>
